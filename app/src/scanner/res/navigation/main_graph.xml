@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scanner_main_graph"
+    app:startDestination="@id/scannerMenuFragment">
+
+    <fragment
+        android:id="@+id/scannerMenuFragment"
+        android:name="com.vasha.workhrstracker.features.scanner.ScannerMenuFragment"
+        android:label="ScannerMenuFragment" >
+        <action
+            android:id="@+id/action_scannerMenuFragment_to_scannerCameraFragment"
+            app:destination="@id/scannerCameraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scannerCameraFragment"
+        android:name="com.vasha.workhrstracker.features.scanner.ScannerCameraFragment"
+        android:label="ScannerCameraFragment" >
+        <argument
+            android:name="activityType"
+            app:argType="com.vasha.workhrstracker.features.scanner.ActivityType" />
+        <action
+            android:id="@+id/action_scannerCameraFragment_to_scannerDialog"
+            app:destination="@id/scannerDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/scannerDialog"
+        android:name="com.vasha.workhrstracker.features.scanner.ScannerDialog"
+        android:label="ScannerDialog" >
+        <argument
+            android:name="message"
+            app:argType="string" />
+        <argument
+            android:name="title"
+            app:argType="com.vasha.workhrstracker.features.scanner.TitleType" />
+    </dialog>
+
+</navigation>

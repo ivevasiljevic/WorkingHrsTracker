@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/user_main_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/userLoginFragment"
+        android:name="com.vasha.workhrstracker.features.user.UserLoginFragment"
+        android:label="UserLoginFragment" >
+        <action
+            android:id="@+id/action_userLoginFragment_to_adminFragment"
+            app:destination="@id/adminFragment"
+            app:popUpTo="@id/userLoginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.vasha.workhrstracker.features.user.AdminFragment"
+        android:label="AdminFragment" >
+        <action
+            android:id="@+id/action_adminFragment_to_employeeListFragment"
+            app:destination="@id/employeeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userRegisterFragment"
+        android:name="com.vasha.workhrstracker.features.user.UserRegisterFragment"
+        android:label="UserRegisterFragment" >
+        <action
+            android:id="@+id/action_userRegisterFragment_to_adminFragment"
+            app:destination="@id/adminFragment"
+            app:popUpTo="@id/userRegisterFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.vasha.workhrstracker.features.user.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_userRegisterFragment"
+            app:destination="@id/userRegisterFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_userLoginFragment"
+            app:destination="@id/userLoginFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeListFragment"
+        android:name="com.vasha.workhrstracker.features.user.EmployeeListFragment"
+        android:label="EmployeeListFragment" />
+
+</navigation>
