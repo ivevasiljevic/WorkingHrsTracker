@@ -1,73 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#212121"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/welcome_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:fontFamily="@font/ralewaysemibold"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="64dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="Welcome my loyal employee"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="64dp"/>
+        android:textSize="18sp"
+        android:text="Please log in to authenticate your card"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ralewaymedium"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="8dp"/>
 
-    <com.andrognito.pinlockview.IndicatorDots
+    <LinearLayout
         android:id="@+id/indicator_dots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/pin_lock_view"
+        <View
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:background="@drawable/dot_empty"
+            android:layout_marginEnd="20dp"/>
 
-        app:dotDiameter="14dp"
-        app:dotFilledBackground="@drawable/filled_indicator_dot"
-        app:indicatorType="fixed"/>
+        <View
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:background="@drawable/dot_empty"
+            android:layout_marginEnd="20dp"/>
 
-    <TextView
-        android:id="@+id/error_text"
+        <View
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:background="@drawable/dot_empty"
+            android:layout_marginEnd="20dp"/>
+
+        <View
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:background="@drawable/dot_empty"
+            android:layout_marginEnd="20dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/indicator_dots"
-        android:layout_marginTop="64dp"/>
+        android:columnCount="3"
+        android:rowCount="4"
+        android:useDefaultMargins="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="64dp">
 
-    <com.andrognito.pinlockview.PinLockView
-        android:id="@+id/pin_lock_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:pinLength="4"
-        app:keypadTextColor="@color/black"
-        app:keypadTextSize="16dp"
-        app:keypadButtonSize="60dp"
-        app:keypadVerticalSpacing="16dp"
-        app:keypadHorizontalSpacing="36dp"
-        app:keypadDeleteButtonSize="16dp"
-        app:keypadShowDeleteButton="true"
-        app:keypadDeleteButtonPressedColor="#C8C8C8"
+        <Button
+            android:id="@+id/no_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            android:text="1"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="16dp"/>
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="32dp"/>
+        <Button
+            android:id="@+id/no_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            android:textSize="18sp"
+            android:text="2"
+            android:textColor="@color/white"
+            android:layout_marginEnd="16dp"/>
 
-    <ImageView
-        android:id="@+id/fingerprint_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_fingerprint"
-        app:layout_constraintBottom_toBottomOf="@id/pin_lock_view"
-        app:layout_constraintEnd_toEndOf="@id/pin_lock_view"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"/>
+        <Button
+            android:id="@+id/no_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            android:text="3"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="16dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/no_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            android:text="4"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="16dp"/>
+
+        <Button
+            android:id="@+id/no_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            android:text="5"
+            android:layout_marginEnd="16dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/no_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            android:text="6"
+            android:layout_marginEnd="16dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/no_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            android:text="7"
+            android:layout_marginEnd="16dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/no_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            android:text="8"
+            android:layout_marginEnd="16dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/no_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9"
+            android:layout_marginEnd="16dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/secondary_color"/>
+
+        <Button
+            android:id="@+id/no_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondary_color"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:text="0"
+            android:layout_marginEnd="16dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/backspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_backspace"
+            app:iconTint="@color/white"
+            android:layout_marginEnd="16dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:textColor="@color/white"
+            app:iconGravity="textStart"
+            android:padding="-2dp"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/finerprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_fingerprint"
+            app:iconTint="@color/white"
+            android:layout_marginEnd="16dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:textColor="@color/white"
+            android:layout_row="3"
+            android:layout_column="2"
+            app:iconGravity="textStart"
+            android:padding="-2dp"
+            android:visibility="visible"/>
+
+    </GridLayout>
+
+</LinearLayout>

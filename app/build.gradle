@@ -84,9 +84,6 @@ dependencies {
     //Coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
 
-    //PinLockView
-    implementation 'com.andrognito.pinlockview:pinlockview:2.1.0'
-
     //Biometrics
     implementation 'androidx.biometric:biometric-ktx:1.2.0-alpha04'
 
@@ -109,6 +106,9 @@ dependencies {
 
     //Data Store
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    //Lottie
+    implementation 'com.airbnb.android:lottie:4.2.2'
 }
 kapt {
     correctErrorTypes = true

@@ -24,13 +24,12 @@
     </fragment>
     <fragment
         android:id="@+id/userRegisterFragment"
-        android:name="com.vasha.workhrstracker.features.user.UserRegisterFragment"
+        android:name="com.vasha.workhrstracker.features.user.UserRegisterNameFragment"
         android:label="UserRegisterFragment" >
         <action
-            android:id="@+id/action_userRegisterFragment_to_adminFragment"
-            app:destination="@id/adminFragment"
-            app:popUpTo="@id/userRegisterFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_userRegisterFragment_to_userRegisterPINFragment"
+            app:destination="@id/userRegisterPINFragment"
+            app:popExitAnim="@anim/slide_right" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -51,5 +50,20 @@
         android:id="@+id/employeeListFragment"
         android:name="com.vasha.workhrstracker.features.user.EmployeeListFragment"
         android:label="EmployeeListFragment" />
+    <fragment
+        android:id="@+id/userRegisterPINFragment"
+        android:name="com.vasha.workhrstracker.features.user.UserRegisterPINFragment"
+        android:label="UserRegisterPINFragment" >
+        <action
+            android:id="@+id/action_userRegisterPINFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+        <action
+            android:id="@+id/action_userRegisterPINFragment_to_userDialog"
+            app:destination="@id/userDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/userDialog"
+        android:name="com.vasha.workhrstracker.features.user.UserDialog"
+        android:label="UserDialog" />
 
 </navigation>

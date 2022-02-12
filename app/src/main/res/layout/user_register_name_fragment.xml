@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#212121">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Welcome employee!"
+        android:textSize="28sp"
+        android:fontFamily="@font/ralewaysemibold"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="64dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Please register to access your company card"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ralewaymedium"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="8dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/username_layout"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="32dp"
+        android:layout_height="wrap_content"
+        android:hint="Full name"
+        android:theme="@style/TextInputLayoutStyle"
+        android:layout_marginTop="64dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="match_parent"
+        android:text="Next"
+        android:backgroundTint="@color/secondary_color"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="32dp"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

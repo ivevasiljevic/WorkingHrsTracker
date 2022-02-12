@@ -31,9 +31,9 @@ class AdminFragment : Fragment(R.layout.admin_fragment) {
 
         viewModel.getUser()
 
-        binding.employeesList.setOnClickListener {
+        /*binding.employeesList.setOnClickListener {
             findNavController().navigate(AdminFragmentDirections.actionAdminFragmentToEmployeeListFragment())
-        }
+        }*/
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -41,7 +41,9 @@ class AdminFragment : Fragment(R.layout.admin_fragment) {
                 viewModel.userUiState.collect {
                     when(it) {
                         is UserViewModel.UserState.ShowUserData -> {
+                            binding.avatar.setImageResource(it.avatar)
                             binding.employeeNameTextView.text = it.username
+                            binding.employeePosition.text = it.position
                             generateQrCode(it.qrCode)
                         }
                     }
