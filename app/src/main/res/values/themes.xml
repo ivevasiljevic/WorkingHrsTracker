@@ -16,9 +16,9 @@
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
     </style>
 
-    <!--<style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_background</item>
-    </style>-->
+    </style>
 
     <style name="AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="buttonBarNegativeButtonStyle">@style/PositiveButtonStyle</item>

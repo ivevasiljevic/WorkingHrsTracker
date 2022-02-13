@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_wrk_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.WorkHrsTracker">
+        android:theme="@style/SplashTheme">
         <activity
             android:name=".features.MainActivity"
             android:exported="true">
