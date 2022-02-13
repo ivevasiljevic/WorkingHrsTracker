@@ -64,11 +64,11 @@ class UserRegisterPINFragment : Fragment(R.layout.user_register_pin_fragment), V
                         }
                         is UserViewModel.UserState.UserFailed -> {
                             binding.progressBar.isVisible = false
-                            findNavController().navigate(UserRegisterPINFragmentDirections.actionUserRegisterPINFragmentToUserDialog())
+                            //findNavController().navigate(UserRegisterPINFragmentDirections.actionUserRegisterPINFragmentToUserDialog())
                         }
                         UserViewModel.UserState.UserSuccessful -> {
                             binding.progressBar.isVisible = false
-                            findNavController().navigate(UserRegisterPINFragmentDirections.actionUserRegisterPINFragmentToAdminFragment())
+                            //findNavController().navigate(UserRegisterPINFragmentDirections.actionUserRegisterPINFragmentToAdminFragment())
                         }
                     }
                 }

@@ -39,7 +39,7 @@ class ScannerCameraFragment : Fragment(R.layout.scanner_camera_fragment) {
 
     private val binding by viewBinding(ScannerCameraFragmentBinding::bind)
     private val viewModel: ScannerViewModel by sharedViewModel()
-    //private val args: ScannerCameraFragmentArgs by navArgs()
+    private val args: ScannerCameraFragmentArgs by navArgs()
 
     private lateinit var codeScanner: CodeScanner
     private var activityResultLauncher: ActivityResultLauncher<String> = registerForActivityResult(
@@ -67,34 +67,41 @@ class ScannerCameraFragment : Fragment(R.layout.scanner_camera_fragment) {
         requestCameraPermission()
         initializeScannerCamera()
 
-        /*val activity = when(args.activityType) {
+        val activity = when(args.activityType) {
             ARRIVAL -> "arrival to work"
             DEPARTURE -> "departure from work"
             BREAK_START -> "start of lunch break"
             BREAK_END -> "end of lunch break"
-        }*/
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
 
-                viewModel.scannerEvent.collect {
+                viewModel.scannerUiState.collect {
                     when(it) {
                         ScannerViewModel.ScannerUiState.Empty -> {
                             //do nothing
                         }
                         is ScannerViewModel.ScannerUiState.ScanFailed -> {
                             binding.progressBar.isVisible = false
-                            //findNavController().navigate(ScannerCameraFragmentDirections.actionScannerCameraFragmentToScannerDialog("Unsuccessfully logged $activity", TitleType.DENIED))
+                            val errorMessage = if(it.isSoftException) {
+                                it.error
+                            }
+                            else {
+                                "Something went wrong. Please try again."
+                            }
+                            findNavController().navigate(ScannerCameraFragmentDirections.actionScannerCameraFragmentToScannerDialog(errorMessage, TitleType.DENIED))
                         }
                         ScannerViewModel.ScannerUiState.ScanLoading -> {
                             binding.progressBar.isVisible = true
                         }
                         is ScannerViewModel.ScannerUiState.ScanSuccessful -> {
                             binding.progressBar.isVisible = false
-                            //findNavController().navigate(ScannerCameraFragmentDirections.actionScannerCameraFragmentToScannerDialog("Successfully logged $activity", TitleType.APPROVED))
+                            findNavController().navigate(ScannerCameraFragmentDirections.actionScannerCameraFragmentToScannerDialog("Successfully logged $activity", TitleType.APPROVED))
                         }
                         ScannerViewModel.ScannerUiState.NavigateUp -> {
                             findNavController().navigateUp()
+                            viewModel.reset()
                         }
                     }
                 }
@@ -132,7 +139,7 @@ class ScannerCameraFragment : Fragment(R.layout.scanner_camera_fragment) {
 
         codeScanner.decodeCallback = DecodeCallback {
             lifecycleScope.launch {
-                //viewModel.scanQrCode(Scan(it.text, args.activityType.toString()))
+                viewModel.scanQrCode(Scan(it.text, args.activityType.toString()))
             }
         }
         codeScanner.errorCallback = ErrorCallback {

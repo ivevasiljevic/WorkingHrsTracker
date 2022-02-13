@@ -33,7 +33,7 @@ class UserRegisterNameFragment : Fragment(R.layout.user_register_name_fragment) 
             else {
                 binding.usernameLayout.error = null
                 viewModel.fullName = binding.usernameEdit.text.toString()
-                findNavController().navigate(UserRegisterNameFragmentDirections.actionUserRegisterFragmentToUserRegisterPINFragment())
+                //findNavController().navigate(UserRegisterNameFragmentDirections.actionUserRegisterFragmentToUserRegisterPINFragment())
             }
         }
     }

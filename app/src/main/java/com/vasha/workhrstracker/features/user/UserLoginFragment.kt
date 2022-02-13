@@ -78,7 +78,8 @@ class UserLoginFragment : Fragment(R.layout.user_login_fragment), View.OnClickLi
                             binding.indicatorDots.startAnimation(shake)
                         }
                         UserViewModel.UserState.UserSuccessful -> {
-                            findNavController().navigate(UserLoginFragmentDirections.actionUserLoginFragmentToAdminFragment())                        }
+                            //findNavController().navigate(UserLoginFragmentDirections.actionUserLoginFragmentToAdminFragment())
+                        }
                     }
                 }
             }
@@ -98,7 +99,7 @@ class UserLoginFragment : Fragment(R.layout.user_login_fragment), View.OnClickLi
                 override fun onAuthenticationSucceeded(
                     result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
-                    findNavController().navigate(UserLoginFragmentDirections.actionUserLoginFragmentToAdminFragment())
+                    //findNavController().navigate(UserLoginFragmentDirections.actionUserLoginFragmentToAdminFragment())
                 }
 
                 override fun onAuthenticationFailed() {

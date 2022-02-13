@@ -12,8 +12,4 @@ class UserRepository(private val workingHrsTrackerApi: WorkingHrsTrackerApi) {
    fun registerUser(user: User) = safeApiCall {
        workingHrsTrackerApi.registerUser(user)
    }
-
-    fun getLogs() = safeApiCall {
-        workingHrsTrackerApi.getLogs()
-    }
 }

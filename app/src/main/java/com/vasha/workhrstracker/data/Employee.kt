@@ -1,11 +1,12 @@
 package com.vasha.workhrstracker.data
 
+import com.google.gson.annotations.SerializedName
+
 /**
  * Created by ivasil on 1/27/2022
  */
 
 data class Employee(
- val user: String,
- val type: String,
- val timestamp: String
+ @SerializedName("_id") val id: String,
+ val username: String
 )

@@ -1,6 +1,8 @@
 package com.vasha.workhrstracker.di
 
 import com.vasha.workhrstracker.BuildConfig
+import com.vasha.workhrstracker.api.ServerInterceptor
+import com.vasha.workhrstracker.api.ServerSoftException
 import com.vasha.workhrstracker.api.WorkingHrsTrackerApi
 import com.vasha.workhrstracker.data.PreferencesManager
 import com.vasha.workhrstracker.data.ScannerRepository
@@ -41,7 +43,9 @@ fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
 }
 
 fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
-    return OkHttpClient.Builder().addInterceptor(loggingInterceptor.apply { this.level = HttpLoggingInterceptor.Level.BODY })
+    return OkHttpClient.Builder()
+        .addInterceptor(ServerInterceptor())
+        .addInterceptor(loggingInterceptor.apply { this.level = HttpLoggingInterceptor.Level.BODY })
         .build()
 }
 

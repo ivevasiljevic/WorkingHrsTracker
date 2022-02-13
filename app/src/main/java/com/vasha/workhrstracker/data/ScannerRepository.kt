@@ -12,4 +12,12 @@ class ScannerRepository(private val workingHrsTrackerApi: WorkingHrsTrackerApi) 
     fun scanQrCode(scan: Scan) = safeApiCall {
         workingHrsTrackerApi.scanQrCode(scan)
     }
+
+    fun getEmployees() = safeApiCall {
+        workingHrsTrackerApi.getEmployees()
+    }
+
+    fun getEmployeeLogs(employeeId: String) = safeApiCall {
+        workingHrsTrackerApi.getEmployeeLogs(employeeId)
+    }
 }

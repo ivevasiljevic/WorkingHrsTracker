@@ -32,10 +32,10 @@ class SplashFragment : Fragment(R.layout.splash_fragment) {
                             //do nothing
                         }
                         UserViewModel.UserState.UserNavigation.NavigateToLoginScreen -> {
-                            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToUserLoginFragment())
+                            //findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToUserLoginFragment())
                         }
                         UserViewModel.UserState.UserNavigation.NavigateToRegisterScreen -> {
-                            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToUserRegisterFragment())
+                            //findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToUserRegisterFragment())
                         }
                     }
                 }

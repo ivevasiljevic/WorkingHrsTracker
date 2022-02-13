@@ -1,5 +1,6 @@
 package com.vasha.workhrstracker.util
 
+import com.vasha.workhrstracker.api.ServerSoftException
 import kotlinx.coroutines.flow.channelFlow
 import retrofit2.HttpException
 
@@ -16,10 +17,13 @@ inline fun <RequestType> safeApiCall(
     try {
         send(Resource.Success(apiCall.invoke()))
     }
+    catch (e : ServerSoftException) {
+        send(Resource.Error(e, null, true))
+    }
     catch (e: HttpException) {
-        send(Resource.Error(e, null))
+        send(Resource.Error(e, null, false))
     }
     catch (e: Throwable) {
-        send(Resource.Error(e, null))
+        send(Resource.Error(e, null, false))
     }
 }

@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
-        app:lottie_rawRes="@raw/loading_animation"
+        app:lottie_rawRes="@raw/error_animation"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"/>
 

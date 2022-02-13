@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_scannerMenuFragment_to_scannerCameraFragment"
             app:destination="@id/scannerCameraFragment" />
+        <action
+            android:id="@+id/action_scannerMenuFragment_to_employeeLogsFragment"
+            app:destination="@id/employeeLogsFragment" />
     </fragment>
     <fragment
         android:id="@+id/scannerCameraFragment"
@@ -34,5 +37,16 @@
             android:name="title"
             app:argType="com.vasha.workhrstracker.features.scanner.TitleType" />
     </dialog>
+    <fragment
+        android:id="@+id/employeeLogsFragment"
+        android:name="com.vasha.workhrstracker.features.scanner.EmployeeLogsFragment"
+        android:label="EmployeeLogsFragment" >
+        <argument
+            android:name="employeeId"
+            app:argType="string" />
+        <argument
+            android:name="employeeName"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

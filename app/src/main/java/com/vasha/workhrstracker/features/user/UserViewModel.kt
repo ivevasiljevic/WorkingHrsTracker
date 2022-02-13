@@ -72,24 +72,6 @@ class UserViewModel(
         ))
     }
 
-    fun getLogs() = viewModelScope.launch {
-        userRepository.getLogs().collect {
-            when(it) {
-                is Resource.Error -> {
-                    userUiState.tryEmit(UserState.UserFailed(it.message.toString()))
-                }
-                is Resource.Loading -> {
-                    userUiState.tryEmit(UserState.Loading)
-                }
-                is Resource.Success -> {
-                    if (it.data != null) {
-                        userUiState.tryEmit(UserState.LogsSuccessful(it.data))
-                    }
-                }
-            }
-        }
-    }
-
     fun loginUser(pin: String) {
         if(user.pin == pin) {
             userUiState.tryEmit(UserState.UserSuccessful)
@@ -101,7 +83,6 @@ class UserViewModel(
 
     sealed class UserState {
         object UserSuccessful : UserState()
-        data class LogsSuccessful(val list: List<Employee>) : UserState()
         object Empty : UserState()
         data class UserFailed(val error: String) : UserState()
         object Loading : UserState()

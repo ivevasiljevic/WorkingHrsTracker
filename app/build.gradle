@@ -109,6 +109,9 @@ dependencies {
 
     //Lottie
     implementation 'com.airbnb.android:lottie:4.2.2'
+
+    //Facebook shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }
 kapt {
     correctErrorTypes = true
