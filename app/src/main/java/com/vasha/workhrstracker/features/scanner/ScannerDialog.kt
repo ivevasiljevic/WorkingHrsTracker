@@ -42,7 +42,7 @@ class ScannerDialog : DialogFragment() {
 
      setFullScreen()
      if(scannerDialogArgs.title == TitleType.APPROVED) {
-         binding.animationView.setAnimation(R.raw.success_animiation)
+         binding.animationView.setAnimation(R.raw.success_animation)
          binding.errorMessage.text = scannerDialogArgs.message
          binding.close.isVisible = false
 

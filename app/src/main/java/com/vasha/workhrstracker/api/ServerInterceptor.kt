@@ -16,11 +16,11 @@ class ServerInterceptor : Interceptor {
 
         val response = chain.proceed(chain.request())
 
-        if(response.code == 404) {
+        if(response.code == 400 || response.code == 404) {
             val gson = Gson()
             val responseMessage = response.body?.byteString()?.utf8().toString()
             if(isJson(responseMessage)) {
-                throw ServerSoftException(gson.fromJson(responseMessage, com.vasha.workhrstracker.data.ScanStatus::class.java).message)
+                throw ServerSoftException(gson.fromJson(responseMessage, ScanStatus::class.java).message)
             }
             else {
                 throw ServerSoftException(responseMessage)

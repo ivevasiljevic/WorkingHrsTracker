@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#212121">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -13,18 +14,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
-        app:lottie_rawRes="@raw/error_animation"
         app:lottie_autoPlay="true" />
 
     <TextView
         android:id="@+id/error_message"
-        android:text="Something went wrong. Please try again."
+        tools:text="Something went wrong. Please try again."
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/animationView"
+        app:layout_constraintBottom_toTopOf="@id/close"
         android:layout_width="match_parent"
+        app:layout_goneMarginBottom="16dp"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:fontFamily="@font/ralewaymedium"
@@ -43,7 +45,6 @@
         android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/secondary_color"
-        />
+        android:backgroundTint="@color/secondary_color" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
